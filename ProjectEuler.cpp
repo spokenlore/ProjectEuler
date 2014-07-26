@@ -55,7 +55,7 @@ void problem2(){
 
 int problem3(){
     //int number = 600851475143;
-    int number = 57;
+    int number = 108;
     int largestfactor = 1;
     bool isPrime = false;
 
