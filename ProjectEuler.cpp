@@ -56,10 +56,10 @@ void problem2(){
 int problem3(){
     int number = 600851475143;
     //int number = 104261;
-    int largestfactor = 1;
     bool isPrime = false;
+    int x;
 
-    for (int x = number / 2; x > 1; x--){
+    for (x = number / 2; x > 1; x--){
         if (number % x == 0){
             if (number % 2 == 0){
                 break;
@@ -81,6 +81,6 @@ int problem3(){
         }
     }
 
-    // cout << "The largest prime factor of 600851475143 is " << x;
+    cout << "The largest prime factor of 600851475143 is " << x;
     return 0;
     }
