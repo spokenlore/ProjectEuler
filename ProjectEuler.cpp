@@ -54,24 +54,30 @@ void problem2(){
     }
 
 int problem3(){
-    int number = 600851475143;
+    //int number = 600851475143;
+    int number = 57;
     int largestfactor = 1;
-    bool isPrime = false;;
+    bool isPrime = false;
 
-    for (int x = number-1; x = x-2;){
+    int x = sqrt(number);
+
+    for (int x = number / 2; x> 1; x--){
         if (number % x == 0){
-            bool isPrime = true;
-            for (int i = x-1; i > 1; i--){
-
+            bool isPrime = false;
+            for (int i = 2; i < x; i++){
+                    isPrime = true;
                 if (x % i == 0){
                     isPrime = false;
-                    break;
                 }
-                if
+                if (isPrime == true)
+                {
+                    cout << "The largest prime factor is " << x;
+                    return 0;
+                }
             }
         }
     }
 
-    cout << "The largest prime factor of 600851475143 is " << largestfactor;
-
+    // cout << "The largest prime factor of 600851475143 is " << x;
+    return 0;
     }
