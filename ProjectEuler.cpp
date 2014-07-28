@@ -54,33 +54,22 @@ void problem2(){
     }
 
 int problem3(){
-    int number = 600851475143;
-    //int number = 104261;
-    bool isPrime = false;
-    int x;
+    const long int numm = 600851475143;
+    long int largestFact = 0;
 
-    for (x = number / 2; x > 1; x--){
-        if (number % x == 0){
-            if (number % 2 == 0){
-                break;
-            }
-            bool isPrime = false;
-            for (int i = 2; i < x; i++){
-                if (x % i == 0){
+    for (long int i = 2; i < numm; i++) {
+        if (numm % i == 0) {
+            bool isPrime = true;
+            for (long j = 2; j < i; j++) {
+                if (i % j == 0) {
                     isPrime = false;
                     break;
+                    cout << endl << "The greatest prime factor of " << numm << "is " << j << "." << endl;
                 }
-                if (i == x-1)
-                    isPrime = true;
-                if (isPrime == true)
-                {
-                    cout << "The largest prime factor is " << x;
-                    return 0;
-                }
+            }
+            if (isPrime) {
+                largestFact = i;
             }
         }
     }
-
-    cout << "The largest prime factor of 600851475143 is " << x;
-    return 0;
-    }
+}
