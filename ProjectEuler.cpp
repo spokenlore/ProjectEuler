@@ -6,6 +6,8 @@ using namespace std;
 void problem1();
 void problem2();
 int problem3();
+int problem4();
+int isPalindrome(long int num);
 
 int main(){
     int problemnumber;
@@ -21,6 +23,9 @@ int main(){
     }
     else if (problemnumber == 3){
         problem3();
+    }
+    else if (problemnumber == 4){
+        problem4();
     }
     else
         cout << "Error. This number is either invalid or has not yet been completed";
@@ -50,17 +55,18 @@ void problem2(){
         }
         }
             cout << endl
-            << "The sum of all even fibonacci numbers under 4,000,000 is " << sum;
+            << "The sum of all even fibonacci numbers under 4,000,000 is " << sum << endl;
     }
 
+// Non-working solution to problem 3
 int problem3(){
-    const long int numm = 600851475143;
-    long int largestFact = 0;
+    const long long numm = 600851475143;
+    long long int largestFact = 0;
 
-    for (long int i = 2; i < numm; i++) {
+    for (long long i = 2; i < numm; i++) {
         if (numm % i == 0) {
             bool isPrime = true;
-            for (long j = 2; j < i; j++) {
+            for (long long j = 2; j < i; j++) {
                 if (i % j == 0) {
                     isPrime = false;
                     break;
@@ -72,4 +78,49 @@ int problem3(){
             }
         }
     }
+}
+
+int problem4(){
+    //int n;
+    //cout << "what is the number you want checked?" << endl;
+    //cin >> n;
+    long int a = 999;
+    long int b = 999;
+    bool checker = false;
+    long int product = 0;
+    int i = 0;
+        while (checker = false){
+           if (i % 2 == 0){
+            a--;
+           }
+           else b--;
+                product = a * b;
+                if (isPalindrome(product) == 1){
+                    checker = true;
+                    cout << endl << product;
+                }
+                else checker = false;
+                i++;
+        }
+                if (checker == true){
+                    cout << endl << product << " is the largest possible palindrome.";
+                return 0;}
+                else return 0;
+            }
+
+int isPalindrome(long int num){
+    //cout << num << endl;
+        long int n = num;
+        long int rev = 0;
+        long int dig;
+        while (num > 0){
+            dig = num % 10;
+            rev = rev * 10 + dig;
+            num = num / 10;
+        }
+    if (n==rev){
+        cout << "Your number"  << " is a palindrome!";
+        return 1;
+    }
+    else return 0;
 }
