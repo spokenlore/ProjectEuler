@@ -2,7 +2,7 @@
 # Project Euler Problem 8
 
 # What is the largest product that can be made with 13 consecutive numbers in this 1000 digit number?
-# Answer:
+# Answer: 23514624000
 
 import time
 from math import pow
@@ -12,6 +12,7 @@ fullNum = 7316717653133062491922511967442657474235534919493496983520312774506326
 def largestConsecutiveProduct(number, numDigits):
 	currentDigits = 0
 	maxProduct = 0
+	maxDigits = 0
 	currentExp = 10
 	useNum = fullNum
 	
@@ -22,14 +23,23 @@ def largestConsecutiveProduct(number, numDigits):
 			product = calculateProduct(currentDigits)
 			if product > maxProduct:
 				maxProduct = product
-		if (currentDigits > 1000000000000):
+				maxDigits = currentDigits
+		if (currentDigits > 1000000000000 and currentDigits < 10000000000000):
 			product = calculateProduct(currentDigits)
 			if product > maxProduct:
 				maxProduct = product
-		else:
+				maxDigits = currentDigits
+		if (currentDigits > 10000000000000):
+			currentDigits = currentDigits % 1000000000000
+			product = calculateProduct(currentDigits)
+			if product > maxProduct:
+				maxProduct = product
+				maxDigits = currentDigits
+		else:		
 			currentDigits *= 10
 			currentDigits += (useNum % 10)
 			useNum = useNum / 10
+	print maxDigits
 	return maxProduct
 
 def calculateProduct(number):
